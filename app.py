@@ -1,6 +1,4 @@
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
 import os
 import datetime
 import csv
@@ -13,14 +11,16 @@ from tensorflow.keras.models import load_model
 import nltk
 from nltk.stem import WordNetLemmatizer
 
-# Load pre-trained model and dataset
 model = load_model('chatbot_model.h5')
 with open('expanded_medical.json', 'r') as file:
     intents = json.load(file)
+    
+nltk.download('punkt')
+nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
-words = [...]  # Add your processed 'words' list here
-classes = [...]  # Add your 'classes' list here
+words = [...] 
+classes = [...] 
 def clean_up_sentence(sentence):
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
