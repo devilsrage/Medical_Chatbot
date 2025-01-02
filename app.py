@@ -1,7 +1,9 @@
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
 import os
 import datetime
 import csv
-import nltk
 import ssl
 import streamlit as st
 import numpy as np
