@@ -11,6 +11,14 @@ from tensorflow.keras.models import load_model
 import nltk
 from nltk.stem import WordNetLemmatizer
 
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
+nltk.data.path.append(nltk_data_path)
+
+nltk.download('punkt', download_dir=nltk_data_path)
+nltk.download('wordnet', download_dir=nltk_data_path)
+
 model = load_model('chatbot_model.h5')
 with open('expanded_medical.json', 'r') as file:
     intents = json.load(file)
